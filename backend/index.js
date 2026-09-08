@@ -1,0 +1,12 @@
+import { WebSocketServer } from 'ws';
+const wss = new WebSocketServer({ port: 8080 });
+let senderSocket = null;
+let receiverSocket = null;
+wss.on('connection', function connection(ws) {
+    ws.on('error', console.error);
+    ws.on('message', function message(data) {
+        const message = JSON.parse(data);
+    });
+    ws.send('something');
+});
+//# sourceMappingURL=index.js.map
